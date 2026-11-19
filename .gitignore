@@ -1,0 +1,15 @@
+# User settings and session data (never commit your WhatsApp login!)
+settings.json
+UserData/
+*UserData*
+
+# Temporary files and build artifacts
+*.obj
+*.pdb
+*_old.exe
+*.tmp
+*.gz
+test_*
+extracted.*
+.vs/
+.vscode/
