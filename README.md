@@ -3,18 +3,21 @@
 **WhatsLite** is a blazingly fast, native Windows desktop client for WhatsApp Web built using Microsoft's evergreen **WebView2** runtime. Instead of bundling a 200+ MB Chromium/Electron browser, WhatsLite leverages the WebView2 engine already built into Windows 10 and 11, resulting in a single executable with sub-second startup and minimal memory footprint.
 
 ---
-
-## Standalone Installer (`WhatsLiteSetup.exe`)
-
-WhatsLite includes a self-contained standalone Windows installer:
-- **File**: **[WhatsLiteSetup.exe](file:///C:/Users/Dasdi/.gemini/antigravity/scratch/WhatsLite/WhatsLiteSetup.exe)** (~379 KB)
-- **Zero Dependencies**: Requires no administrative elevation or external runtime download; runs out-of-the-box on Windows 10 & Windows 11.
-- **Embedded Payload**: Embeds the application binary, WebView2 loader, icons, and uninstaller in a compressed (~67% compression) payload.
-- **Clean Installation Location**: Defaults to `%LOCALAPPDATA%\Programs\WhatsLite` (user-level, standard for modern desktop apps like VS Code and Discord).
-- **Shortcut Creation**: Automatically generates **Desktop** and **Start Menu** shortcuts (`WhatsLite.lnk`).
-- **Windows Integration**: Fully registered in Windows **Settings > Installed Apps** / **Add or Remove Programs** with version, publisher, install location, and icon.
-- **Clean Uninstallation**: Includes `Uninstall.exe` for one-click removal of files, registry entries, and shortcuts.
-- **Silent Installation**: Supports silent deployment for enterprise or automated setups via `WhatsLiteSetup.exe /S` or `--silent`.
+WhatsLite v1.1 — Standalone Multi-Account Desktop Client
+🚀 What's New in v1.1:
+Clean Minimalist Headers:
+Main title bar shows strictly WhatsLite (no clutter or long usernames).
+In-app menu shows strictly Switch Account ▾ (account names appear cleanly inside the dropdown).
+Smart Login & Account Naming:
+Displays No Account Logged In on fresh installations or unauthenticated accounts.
+Automatically detects when you finish scanning the QR code and prompts you with a clean popup to name the account (e.g. Personal, Work).
+➕ Add Account... is hidden until at least one account is linked.
+Delete Single Account:
+Full support to delete any account (single or multi-account) via 🗑️ Delete Account. Deleting resets the session and clears all cookies to display a fresh QR code screen.
+Active-Account-Only Notifications:
+Desktop notifications, audio chimes, taskbar flashing, and unread badge overlays trigger strictly for the active account. Inactive background accounts remain muted.
+Standalone Installer v1.1:
+Single standalone setup file (WhatsLiteSetup.exe, ~389 KB) with automatic Desktop & Start Menu shortcut creation and Windows Add/Remove Programs integration.
 
 ---
 
