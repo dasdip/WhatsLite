@@ -4,13 +4,13 @@
 [![Release](https://img.shields.io/badge/Release-v1.3-brightgreen.svg)](https://github.com/)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-blue.svg)](https://microsoft.com)
 [![Engine](https://img.shields.io/badge/Engine-Microsoft%20WebView2-teal.svg)](https://developer.microsoft.com/microsoft-edge/webview2/)
-[![RAM Usage](https://img.shields.io/badge/RAM%20Usage-~50%20MB-success.svg)](https://github.com/)
+[![RAM Usage](https://img.shields.io/badge/RAM%20Usage-%3C%2015%20MB-success.svg)](https://github.com/)
 [![Installer Size](https://img.shields.io/badge/Installer%20Size-~385%20KB-orange.svg)](https://github.com/)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](LICENSE)
 
 **WhatsLite** is an ultra-fast, lightweight native Windows desktop client for WhatsApp Web built using Microsoft's evergreen **WebView2** runtime. 
 
-Unlike traditional Electron-based wrappers that bundle a full 200+ MB Chromium browser and consume 400+ MB of RAM, WhatsLite taps directly into the high-performance WebView2 runtime already built into Windows 10 and 11. It delivers sub-second instant startup, near-zero idle memory consumption (~50 MB), true multi-account isolation, and seamless native Windows integration.
+Unlike traditional Electron-based wrappers that bundle a full 200+ MB Chromium browser and consume 400+ MB of RAM, WhatsLite taps directly into the high-performance WebView2 runtime already built into Windows 10 and 11. It delivers sub-second instant startup, near-zero idle memory consumption (**under 15 MB**), true multi-account isolation, and seamless native Windows integration.
 
 ---
 
@@ -20,7 +20,7 @@ Unlike traditional Electron-based wrappers that bundle a full 200+ MB Chromium b
 |---|:---:|:---:|
 | **Installer Size** | 150 MB – 250 MB | **~385 KB** |
 | **Installed Disk Footprint** | 350 MB – 500 MB | **< 2 MB** |
-| **RAM Usage (Idle)** | 400 MB – 650 MB | **~15 MB** |
+| **RAM Usage (Idle)** | 400 MB – 650 MB | **< 15 MB** |
 | **Startup Time** | 3 – 6 seconds | **< 1 second** |
 | **Multi-Account Support** | ❌ None (or clumsy tabs) | **✔️ True isolated accounts** |
 | **Active-Only Notifications** | ❌ Background noise from all | **✔️ Mutes background accounts** |
@@ -70,28 +70,6 @@ Unlike traditional Electron-based wrappers that bundle a full 200+ MB Chromium b
   * Close (`[X]`) hides silently to the System Tray to keep receiving messages in the background.
   * Left-click or double-click the system tray icon to restore the window instantly.
 * **Dynamic Badges**: Real-time unread message counts are overlaid directly onto both the Taskbar icon and System Tray icon.
-* **Automatic Memory Optimizer**: Trims the application's working set memory whenever minimized to tray.
+* **Automatic Memory Optimizer**: Dynamically trims the application's working set memory to **under 15 MB** whenever minimized to tray.
 
-### 🛡️ 6. 100% Ban-Safe & Clean-Safe Architecture
-* **Zero Ban Risk**: Connects directly to the official `https://web.whatsapp.com/` endpoint using Microsoft's official Chromium engine with standard Edge User-Agents. No reverse-engineered APIs or modified APKs.
-* **Cleaner Protected**: Session logins are stored safely in `%APPDATA%\WhatsLite\`, which is whitelisted by Windows Disk Cleanup and third-party cleaners (CCleaner, BleachBit).
-
-### ℹ️ 7. In-App About Screen & Credits
-* Accessible directly from the menu below account management.
-* Displays Creator & Developer attribution: **Mr. Dipendu Das**.
-* Features detailed technical specifications and a convenient **`[ ← Back ]`** button to return cleanly to chats.
-
----
-
-## 📦 Downloads & Installation
-
-| Package | Size | Description |
-|---|---|---|
-| **[WhatsLiteSetup.exe]** | **~385 KB** | **Recommended.** Standalone wizard installer. Creates Desktop & Start Menu shortcuts, and registers in Windows Settings > Apps with a clean uninstaller. |
-
-
----
-
-## 🚀 Release History & Changelog
-
-### 🌟 v1.3
+### 🛡️ 6. 100% Ban-Safe & Clean-Safe
