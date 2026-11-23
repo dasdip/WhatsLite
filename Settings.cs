@@ -15,6 +15,7 @@ namespace WhatsLite
         public bool IsMaximized = false;
         public bool StartWithWindows = false;
         public bool LowMemoryMode = true;
+        public bool MuteNotificationSound = false;
 
         private static string SettingsFilePath
         {
@@ -65,6 +66,7 @@ namespace WhatsLite
                     s.IsMaximized = GetBool(json, "isMaximized", s.IsMaximized);
                     s.StartWithWindows = GetBool(json, "startWithWindows", s.StartWithWindows);
                     s.LowMemoryMode = GetBool(json, "lowMemoryMode", s.LowMemoryMode);
+                    s.MuteNotificationSound = GetBool(json, "muteNotificationSound", s.MuteNotificationSound);
                 }
             }
             catch {}
@@ -76,11 +78,12 @@ namespace WhatsLite
             try
             {
                 string json = string.Format(
-                    "{{\n  \"x\": {0},\n  \"y\": {1},\n  \"width\": {2},\n  \"height\": {3},\n  \"isMaximized\": {4},\n  \"startWithWindows\": {5},\n  \"lowMemoryMode\": {6}\n}}",
+                    "{{\n  \"x\": {0},\n  \"y\": {1},\n  \"width\": {2},\n  \"height\": {3},\n  \"isMaximized\": {4},\n  \"startWithWindows\": {5},\n  \"lowMemoryMode\": {6},\n  \"muteNotificationSound\": {7}\n}}",
                     X, Y, Width, Height,
                     IsMaximized ? "true" : "false",
                     StartWithWindows ? "true" : "false",
-                    LowMemoryMode ? "true" : "false"
+                    LowMemoryMode ? "true" : "false",
+                    MuteNotificationSound ? "true" : "false"
                 );
                 File.WriteAllText(SettingsFilePath, json);
             }

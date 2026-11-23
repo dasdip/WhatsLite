@@ -4,13 +4,13 @@
 [![Release](https://img.shields.io/badge/Release-v1.3-brightgreen.svg)](https://github.com/)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-blue.svg)](https://microsoft.com)
 [![Engine](https://img.shields.io/badge/Engine-Microsoft%20WebView2-teal.svg)](https://developer.microsoft.com/microsoft-edge/webview2/)
-[![RAM Usage](https://img.shields.io/badge/RAM%20Usage-~50%20MB-success.svg)](https://github.com/)
+[![RAM Usage](https://img.shields.io/badge/RAM%20Usage-%3C%2015%20MB-success.svg)](https://github.com/)
 [![Installer Size](https://img.shields.io/badge/Installer%20Size-~385%20KB-orange.svg)](https://github.com/)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](LICENSE)
 
 **WhatsLite** is an ultra-fast, lightweight native Windows desktop client for WhatsApp Web built using Microsoft's evergreen **WebView2** runtime. 
 
-Unlike traditional Electron-based wrappers that bundle a full 200+ MB Chromium browser and consume 400+ MB of RAM, WhatsLite taps directly into the high-performance WebView2 runtime already built into Windows 10 and 11. It delivers sub-second instant startup, near-zero idle memory consumption (~50 MB), true multi-account isolation, and seamless native Windows integration.
+Unlike traditional Electron-based wrappers that bundle a full 200+ MB Chromium browser and consume 400+ MB of RAM, WhatsLite taps directly into the high-performance WebView2 runtime already built into Windows 10 and 11. It delivers sub-second instant startup, near-zero idle memory consumption (< 15 MB), true multi-account isolation, and seamless native Windows integration.
 
 ---
 
@@ -20,7 +20,7 @@ Unlike traditional Electron-based wrappers that bundle a full 200+ MB Chromium b
 |---|:---:|:---:|
 | **Installer Size** | 150 MB – 250 MB | **~385 KB** |
 | **Installed Disk Footprint** | 350 MB – 500 MB | **< 2 MB** |
-| **RAM Usage (Idle)** | 400 MB – 650 MB | **~50 MB** |
+| **RAM Usage (Idle)** | 400 MB – 650 MB | **< 15 MB** |
 | **Startup Time** | 3 – 6 seconds | **< 1 second** |
 | **Multi-Account Support** | ❌ None (or clumsy tabs) | **✔️ True isolated accounts** |
 | **Active-Only Notifications** | ❌ Background noise from all | **✔️ Mutes background accounts** |
@@ -59,16 +59,28 @@ Unlike traditional Electron-based wrappers that bundle a full 200+ MB Chromium b
   * Features an emerald **Reload** button with automatic reconnect detection when network connectivity returns.
 * **Instant 0 ms Pre-Flight Check**: Checks network interface availability before navigating, eliminating browser connection timeouts when offline.
 
-### 🔕 4. Smart Active-Account-Only Notifications
+### 🔕 4. Smart Notifications & Dual Mute Controls
 * **Zero Background Interruptions**:
   * Audio chimes, Windows desktop toasts, taskbar flashing, and badge increments trigger **strictly for the active account**.
   * Inactive background accounts are automatically muted and have their web notification APIs silenced.
+* **Quick Header Mute/Unmute Button**:
+  * Added a dedicated mute toggle right in the header bar (just to the left of the minimize button):
+    * `🔊  Sound` (WhatsApp Green): Notification audio enabled.
+    * `🔇  Muted` (Coral Red): Notification audio silenced.
+  * Click anytime to instantly toggle sound without opening menus.
+* **Tray Icon "Mute Notification Sound" Toggle**:
+  * Right-click the system tray icon anytime to toggle sound with a persistent checkmark.
+  * Silences incoming message chimes and audio alerts while preserving visual unread badges and desktop toasts.
+  * Preference is automatically saved and remembered across restarts.
 
 ### 🖥️ 5. Native Windows Desktop Integration
+* **Permanent System Tray Presence**:
+  * The WhatsLite icon stays **always visible in the system tray** from the moment the app starts, regardless of whether the main window is open, minimized, or hidden.
+  * It remains running safely in the tray until you explicitly choose **Quit WhatsLite** from the tray icon menu.
+  * Left-clicking the tray icon smoothly toggles the window between front and tray.
 * **Clean Lifecycle Management**:
   * Minimize (`[-]`) minimizes normally to the taskbar.
   * Close (`[X]`) hides silently to the System Tray to keep receiving messages in the background.
-  * Left-click or double-click the system tray icon to restore the window instantly.
 * **Dynamic Badges**: Real-time unread message counts are overlaid directly onto both the Taskbar icon and System Tray icon.
 * **Automatic Memory Optimizer**: Trims the application's working set memory whenever minimized to tray.
 
@@ -87,7 +99,9 @@ Unlike traditional Electron-based wrappers that bundle a full 200+ MB Chromium b
 
 | Package | Size | Description |
 |---|---|---|
-| **[WhatsLiteSetup.exe]** | **~385 KB** | **Recommended.** Standalone wizard installer. Creates Desktop & Start Menu shortcuts, and registers in Windows Settings > Apps with a clean uninstaller. |
+| **[WhatsLiteSetup.exe](WhatsLiteSetup.exe)** | **~385 KB** | **Recommended.** Standalone wizard installer. Creates Desktop & Start Menu shortcuts, and registers in Windows Settings > Apps with a clean uninstaller. |
+| **[WhatsLite.exe](WhatsLite.exe)** | **~122 KB** | **Portable Executable.** Direct standalone executable with zero installation needed. |
+| **[WhatsLite-v1.3.0.zip](WhatsLite-v1.3.0.zip)** | **~648 KB** | **Full Release Archive.** Includes executables, runtimes, uninstaller, and icon. |
 
 ---
 
@@ -112,7 +126,7 @@ Unlike traditional Electron-based wrappers that bundle a full 200+ MB Chromium b
 * Streamlined header labels: strictly `WhatsLite` and `Switch Account ▾`.
 
 ### 🌟 v1.0 — Initial Release (The Foundation)
-* Built lightweight evergreen WebView2 architecture (< 400 KB installer, ~50 MB RAM).
+* Built lightweight evergreen WebView2 architecture (< 400 KB installer, < 15 MB RAM).
 * Implemented window lifecycle (minimize to taskbar, close to system tray).
 * Added real-time unread badges for Taskbar and System Tray.
 * Integrated memory trimming optimizer on tray minimize.
@@ -120,6 +134,30 @@ Unlike traditional Electron-based wrappers that bundle a full 200+ MB Chromium b
 
 ---
 
+## 🛠️ Building from Source
+
+WhatsLite compiles directly with the native C# compiler included with Windows (`csc.exe` in .NET Framework 4.8) — no heavy IDE or Visual Studio installation required!
+
+1. **Clone the repository**:
+   ```cmd
+   git clone https://github.com/YourUsername/WhatsLite.git
+   cd WhatsLite
+   ```
+
+2. **Build the portable application (`WhatsLite.exe`)**:
+   ```cmd
+   build.bat
+   ```
+
+3. **Build the standalone installer (`WhatsLiteSetup.exe`)**:
+   ```cmd
+   build_installer.bat
+   ```
+
+4. **One-Click GitHub Sync**:
+   ```cmd
+   setup_git_and_push.bat
+   ```
 
 ---
 

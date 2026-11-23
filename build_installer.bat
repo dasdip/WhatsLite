@@ -37,6 +37,9 @@ del /q CompressPayload.exe
 
 echo.
 echo [4/4] Compiling standalone installer WhatsLiteSetup.exe...
+if exist "..\WhatsLiteSetup_old.exe" del /q "..\WhatsLiteSetup_old.exe" 2>nul
+if exist "..\WhatsLiteSetup.exe" ren "..\WhatsLiteSetup.exe" "WhatsLiteSetup_old.exe" 2>nul
+
 "%CSC%" /target:winexe /optimize+ /out:"..\WhatsLiteSetup.exe" /win32icon:"..\app.ico" /win32manifest:"..\app.manifest" /resource:WhatsLite.exe.gz /resource:Microsoft.Web.WebView2.Core.dll.gz /resource:Microsoft.Web.WebView2.WinForms.dll.gz /resource:WebView2Loader.dll.gz /resource:app.ico.gz /resource:Uninstall.exe.gz /r:System.dll,System.Windows.Forms.dll,System.Drawing.dll InstallerProgram.cs
 
 if %ERRORLEVEL% EQU 0 (
@@ -45,8 +48,10 @@ if %ERRORLEVEL% EQU 0 (
     echo   [SUCCESS] WhatsLiteSetup.exe successfully created!
     echo ========================================================
     for %%I in ("..\WhatsLiteSetup.exe") do echo   Installer size: %%~zI bytes
+    del /q "..\WhatsLiteSetup_old.exe" 2>nul
 ) else (
     echo [ERROR] Failed to compile WhatsLiteSetup.exe
+    if exist "..\WhatsLiteSetup_old.exe" ren "..\WhatsLiteSetup_old.exe" "WhatsLiteSetup.exe" 2>nul
 )
 
 cd ..

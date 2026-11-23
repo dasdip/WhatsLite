@@ -1,7 +1,16 @@
 using System;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+
+[assembly: AssemblyTitle("WhatsLite")]
+[assembly: AssemblyDescription("Lightweight WhatsApp Desktop Client")]
+[assembly: AssemblyProduct("WhatsLite")]
+[assembly: AssemblyCompany("WhatsLite")]
+[assembly: AssemblyVersion("1.3.0.0")]
+[assembly: AssemblyFileVersion("1.3.0.0")]
+[assembly: AssemblyInformationalVersion("1.3")]
 
 namespace WhatsLite
 {
