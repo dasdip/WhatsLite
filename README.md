@@ -100,17 +100,22 @@ Unlike traditional Electron-based wrappers that bundle a full 200+ MB Chromium b
 | Package | Size | Description |
 |---|---|---|
 | **[WhatsLiteSetup.exe](WhatsLiteSetup.exe)** | **~385 KB** | **Recommended.** Standalone wizard installer. Creates Desktop & Start Menu shortcuts, and registers in Windows Settings > Apps with a clean uninstaller. |
-| **[WhatsLite.exe](WhatsLite.exe)** | **~122 KB** | **Portable Executable.** Direct standalone executable with zero installation needed. |
+| **[WhatsLite.exe](WhatsLite.exe)** | **~124 KB** | **Portable Executable.** Direct standalone executable with zero installation needed. |
 | **[WhatsLite-v1.3.0.zip](WhatsLite-v1.3.0.zip)** | **~648 KB** | **Full Release Archive.** Includes executables, runtimes, uninstaller, and icon. |
+| **[WhatsLite-v1.3.0-Source.zip](WhatsLite-v1.3.0-Source.zip)** | **~293 KB** | **Source Code Archive.** Complete project source code (.cs), assets, manifests, and build scripts. |
 
 ---
 
 ## 🚀 Release History & Changelog
 
-### 🌟 v1.3 — Dynamic Windows Theme Synchronization
+### 🌟 v1.3 — Dynamic Windows Theme Synchronization & Dual Sound Controls
 * Added dynamic Windows Light/Dark theme synchronization for title bar & in-app header.
 * Implemented real-time `WM_SETTINGCHANGE` detection for on-the-fly theme switching.
 * Synchronized title bars for modal dialogs (**About**, **Rename Account**).
+* Added quick Mute/Unmute audio button directly on the right side of the header bar.
+* Added "Mute Notification Sound" toggle to the system tray context menu with persistent state.
+* Upgraded system tray icon to remain permanently visible until explicitly closed via tray.
+* Added standalone source code archive package (`WhatsLite-v1.3.0-Source.zip`).
 
 ### 🌟 v1.2 — Dedicated Offline Mode & Creator Credits
 * Replaced default browser error screens with a custom WhatsApp-styled offline screen.
