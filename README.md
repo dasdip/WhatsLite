@@ -20,7 +20,7 @@ Unlike traditional Electron-based wrappers that bundle a full 200+ MB Chromium b
 |---|:---:|:---:|
 | **Installer Size** | 150 MB – 250 MB | **~385 KB** |
 | **Installed Disk Footprint** | 350 MB – 500 MB | **< 2 MB** |
-| **RAM Usage (Idle)** | 400 MB – 650 MB | **~50 MB** |
+| **RAM Usage (Idle)** | 400 MB – 650 MB | **~15 MB** |
 | **Startup Time** | 3 – 6 seconds | **< 1 second** |
 | **Multi-Account Support** | ❌ None (or clumsy tabs) | **✔️ True isolated accounts** |
 | **Active-Only Notifications** | ❌ Background noise from all | **✔️ Mutes background accounts** |
@@ -87,9 +87,8 @@ Unlike traditional Electron-based wrappers that bundle a full 200+ MB Chromium b
 
 | Package | Size | Description |
 |---|---|---|
-| **[WhatsLiteSetup.exe](WhatsLiteSetup.exe)** | **~385 KB** | **Recommended.** Standalone wizard installer. Creates Desktop & Start Menu shortcuts, and registers in Windows Settings > Apps with a clean uninstaller. |
-| **[WhatsLite.exe](WhatsLite.exe)** | **~122 KB** | **Portable Executable.** Direct standalone executable with zero installation needed. |
-| **[WhatsLite-v1.3.0.zip](WhatsLite-v1.3.0.zip)** | **~648 KB** | **Full Release Archive.** Includes executables, runtimes, uninstaller, and icon. |
+| **[WhatsLiteSetup.exe]** | **~385 KB** | **Recommended.** Standalone wizard installer. Creates Desktop & Start Menu shortcuts, and registers in Windows Settings > Apps with a clean uninstaller. |
+
 
 ---
 
